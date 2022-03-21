@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <link rel="manifest" href="./manifest.webmanifest" />
+    </head>
+    <style>
+        /*
+        // modern love
+        // @jedi-transit: #f550c4;
+        // @jedi-ixp: #16db3d;
+        // @jedi-eyeballs: #32d4d1;
+        // @jedi-eyeballs-no-probes: #feff22;
+        */
+
+        body {
+            background-color: black;
+            color: #eeee;
+            font-size: calc(14px + 2vmin);
+        }
+
+        #console {
+            font-family: Menlo, monospace;
+        }
+
+        #console p {
+            margin: 0;
+        }
+
+        /* #rpki-test-icon {
+            display: flex;
+            justify-content: center;
+        } */
+
+        #rpki-test-icon svg {
+            margin-top: 105px;
+            margin-left: 10%;
+            margin-right: 10%;
+            max-height: 70vh;
+        }
+
+        .passed,
+        .smile {
+            color: #32d4d1;
+            fill: #32d4d1;
+        }
+
+        .failed,
+        .frown {
+            color: #feff22;
+            fill: #feff22;
+        }
+
+        .meh {
+            color: #f550c4;
+            fill: #f550c4;
+        }
+
+        #header {
+            height: 92px;
+            background-color: #212121;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .title {
+            font-family: "Open Sans", sans-serif;
+            font-size: 72px;
+            position: relative;
+            margin-top: 8px;
+            margin-left: 15px;
+        }
+
+        .title .text {
+			margin: 16px 0;
+          
+        }
+
+        .labs-announce {
+            font-family: "Open Sans", sans-serif;
+            position: absolute;
+            left: 20px;
+            top: 109px;
+        }
+
+        .labs-announce .experiment {
+            color: #16db3d;
+        }
+
+		#console {
+			padding: 12px;
+		}
+
+        #reload {
+            top: 14px;
+            position: absolute;
+            fill: white;
+            right: 15px;
+        }
+
+        #reload:hover {
+            cursor: pointer;
+        }
+    </style>
+    <body>
+        <div id="header">
+            <div class="title">
+                <div class="text">RPKI TEST</div>
+            </div>
+            <svg
+                id="reload"
+                version="1.1"
+                width="72px"
+                height="72px"
+                viewBox="0 0 600 600"
+            >
+                <path
+                    d="M256.455 8c66.269.119 126.437 26.233 170.859 68.685l35.715-35.715C478.149 25.851 504 36.559 504 57.941V192c0 13.255-10.745 24-24 24H345.941c-21.382 0-32.09-25.851-16.971-40.971l41.75-41.75c-30.864-28.899-70.801-44.907-113.23-45.273-92.398-.798-170.283 73.977-169.484 169.442C88.764 348.009 162.184 424 256 424c41.127 0 79.997-14.678 110.629-41.556 4.743-4.161 11.906-3.908 16.368.553l39.662 39.662c4.872 4.872 4.631 12.815-.482 17.433C378.202 479.813 319.926 504 256 504 119.034 504 8.001 392.967 8 256.002 7.999 119.193 119.646 7.755 256.455 8z"
+                ></path>
+            </svg>
+            <div class="labs-announce">
+                Lovingly brought to you by <a class="experiment" href="https://www.nlnetlabs.nl">NLnet Labs</a>
+            </div>
+        </div>
+        <div id="rpki-test-icon">
+            <path
+                d="M7 10.75v-1.5q0-0.109-0.070-0.18t-0.18-0.070h-1.5q-0.109 0-0.18 0.070t-0.070 0.18v1.5q0 0.109 0.070 0.18t0.18 0.070h1.5q0.109 0 0.18-0.070t0.070-0.18zM9 5.5q0-0.688-0.434-1.273t-1.082-0.906-1.328-0.32q-1.898 0-2.898 1.664-0.117 0.187 0.062 0.328l1.031 0.781q0.055 0.047 0.148 0.047 0.125 0 0.195-0.094 0.414-0.531 0.672-0.719 0.266-0.187 0.672-0.187 0.375 0 0.668 0.203t0.293 0.461q0 0.297-0.156 0.477t-0.531 0.352q-0.492 0.219-0.902 0.676t-0.41 0.98v0.281q0 0.109 0.070 0.18t0.18 0.070h1.5q0.109 0 0.18-0.070t0.070-0.18q0-0.148 0.168-0.387t0.426-0.387q0.25-0.141 0.383-0.223t0.359-0.273 0.348-0.375 0.219-0.473 0.098-0.633zM12 7q0 1.633-0.805 3.012t-2.184 2.184-3.012 0.805-3.012-0.805-2.184-2.184-0.805-3.012 0.805-3.012 2.184-2.184 3.012-0.805 3.012 0.805 2.184 2.184 0.805 3.012z"
+            ></path>
+
+            <svg
+                version="1.1"
+                class="meh"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink"
+                viewBox="0 0 12 14"
+            >
+                <path
+                    d="M6.875 9.375v1.25q0 0.109-0.070 0.18t-0.18 0.070h-1.25q-0.109 0-0.18-0.070t-0.070-0.18v-1.25q0-0.109 0.070-0.18t0.18-0.070h1.25q0.109 0 0.18 0.070t0.070 0.18zM8.875 5.5q0 0.391-0.117 0.703t-0.355 0.539-0.406 0.344-0.465 0.281q-0.25 0.141-0.363 0.219t-0.203 0.187-0.090 0.227v0.25q0 0.109-0.070 0.18t-0.18 0.070h-1.25q-0.109 0-0.18-0.070t-0.070-0.18v-0.531q0-0.273 0.082-0.504t0.187-0.371 0.305-0.277 0.32-0.199 0.348-0.164q0.414-0.195 0.586-0.336t0.172-0.383q0-0.328-0.34-0.559t-0.746-0.23q-0.438 0-0.742 0.211-0.227 0.156-0.625 0.648-0.070 0.094-0.195 0.094-0.086 0-0.148-0.047l-0.844-0.641q-0.078-0.055-0.094-0.156t0.039-0.18q0.953-1.5 2.727-1.5 1.008 0 1.863 0.699t0.855 1.676zM6 2q-1.016 0-1.941 0.398t-1.594 1.066-1.066 1.594-0.398 1.941 0.398 1.941 1.066 1.594 1.594 1.066 1.941 0.398 1.941-0.398 1.594-1.066 1.066-1.594 0.398-1.941-0.398-1.941-1.066-1.594-1.594-1.066-1.941-0.398zM12 7q0 1.633-0.805 3.012t-2.184 2.184-3.012 0.805-3.012-0.805-2.184-2.184-0.805-3.012 0.805-3.012 2.184-2.184 3.012-0.805 3.012 0.805 2.184 2.184 0.805 3.012z"
+                ></path>
+            </svg>
+        </div>
+        <div id="console"></div>
+    </body>
+    <script type="text/javascript" src="bundle.js"></script>
+</html>
+
+<!-- [11:22 AM] Nathalie Trenaman: A valid ROA means here that the certificate is verified, and that the BGP announcement matches the ROA
+[11:25 AM] Nathalie Trenaman: An invalid ROA means here that the certificate is verified, but that the BGP announcement does NOT match the information in the ROA. As a result, this prefix is dropped by this provider. (RPKI Origin Validation is likely implemented) -->
